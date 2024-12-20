@@ -1,4 +1,4 @@
-import 'package:codigos_postales/screens/web/web_view.dart';
+import 'package:codigos_postales/screens/home/home_page.dart';
 import 'package:codigos_postales/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,25 +21,9 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
         ),
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text("Códigos Postales"),
-          leading: const Icon(
-            Icons.menu,
-          ),
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: <Color>[
-                  AppStyles.raspberryColor,
-                  AppStyles.kleinBlueColor
-                ])),
-          ),
-        ),
-        body: WebView(urlString: "https://www.google.com.pe/?hl=es"),
+      home: const Scaffold(
+        body: HomePage(),
+        // body: WebView(urlString: "https://ca.wikipedia.org/wiki/Sabadell"),
       ),
       debugShowCheckedModeBanner: false,
     );
