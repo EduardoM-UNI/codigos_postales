@@ -54,10 +54,18 @@ class _ModalContentState extends State<ModalContent> {
           children: [
             ElevatedButton(
               onPressed: () => Navigator.of(context).pop(),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                foregroundColor: Colors.white,
+              ),
               child: const Text("Cancel"),
             ),
             ElevatedButton(
               onPressed: _saveAndClose,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.white,
+              ),
               child: const Text("Buscar"),
             ),
           ],
