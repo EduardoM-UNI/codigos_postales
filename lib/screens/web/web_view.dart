@@ -1,5 +1,4 @@
-import 'package:codigos_postales/data_source/postal_code_service.dart';
-import 'package:codigos_postales/models/postal_codes.dart';
+import 'package:codigos_postales/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -17,14 +16,9 @@ class WebView extends StatefulWidget {
 
 class _WebViewState extends State<WebView> {
   late WebViewController controller;
-  //PostalCodeService? postalCode;
-  PostalCodes? postalCodes;
   @override
   void initState() {
     super.initState();
-    var postalCode = PostalCodeService();
-    postalCode.fechData("08204", "");
-    debugPrint(postalCodes?.countryAbbreviation);
     controller = WebViewController()
       ..loadRequest(
         Uri.parse(widget.urlString),
@@ -34,6 +28,23 @@ class _WebViewState extends State<WebView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text("Códigos Postales"),
+        leading: const Icon(
+          Icons.menu,
+        ),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[
+                AppStyles.raspberryColor,
+                AppStyles.kleinBlueColor
+              ])),
+        ),
+      ),
       body: WebViewWidget(
         controller: controller,
       ),

@@ -2,7 +2,7 @@ import 'package:codigos_postales/data_source/postal_code_service.dart';
 import 'package:codigos_postales/models/postal_codes.dart';
 import 'package:codigos_postales/screens/modal/modal_content.dart';
 import 'package:codigos_postales/utils/app_styles.dart';
-import 'package:codigos_postales/widgets/place_card_widget.dart';
+import 'package:codigos_postales/widgets/location_card.dart';
 import 'package:flutter/material.dart';
 
 class HomeContent extends StatefulWidget {
@@ -13,8 +13,8 @@ class HomeContent extends StatefulWidget {
 }
 
 class _HomeContentState extends State<HomeContent> {
-  PostalCodes? postalCodes; //MODEL
-  PostalCodeService? postalCode; //API
+  List<Place> _places = [];
+  PostalCodes? postalCodes;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,19 +42,13 @@ class _HomeContentState extends State<HomeContent> {
         ),
       ),
       backgroundColor: AppStyles.thistileColor,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 40),
-            if (postalCodes == null)
-              const Center(
-                  child: Text("Aun no hay datos, pulsa la lupa para buscar")),
-            if (postalCodes != null)
-              for (var place in postalCodes!.places)
-                PlaceCardWidget(place: place),
-          ],
-        ),
-      ),
+      body: _places.isEmpty
+          ? const Center(child: Text("Pulsa el botón lupa para buscar"))
+          : ListView.builder(
+              itemCount: _places.length,
+              itemBuilder: (context, index) =>
+                  LocationCard(location: _places[index]),
+            ),
     );
   }
 
@@ -71,10 +65,13 @@ class _HomeContentState extends State<HomeContent> {
             top: 16.0,
           ),
           child: ModalContent(
-            onSave: (data) {
+            onSave: (data) async {
+              final postalCode = PostalCodeService();
+              var dataList = data.entries.toList();
+              final response = await postalCode.fechData(
+                  dataList[0].value, dataList[1].value);
               setState(() {
-                var dataList = data.entries.toList();
-                postalCode?.fechData(dataList[0].value, dataList[1].value);
+                _places = response.places;
               });
             },
           ),
