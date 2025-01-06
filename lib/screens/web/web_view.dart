@@ -20,6 +20,7 @@ class _WebViewState extends State<WebView> {
   void initState() {
     super.initState();
     controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..loadRequest(
         Uri.parse(widget.urlString),
       );

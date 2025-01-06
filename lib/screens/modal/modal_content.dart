@@ -35,7 +35,7 @@ class _ModalContentState extends State<ModalContent> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const Text(
-          "Busqueda por Codigo Postal o Poblacion",
+          "Busqueda por Codigo Postal",
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
@@ -44,10 +44,10 @@ class _ModalContentState extends State<ModalContent> {
           controller: postalCodeController,
           decoration: const InputDecoration(labelText: "Codigo Postal"),
         ),
-        TextField(
-          controller: cityController,
-          decoration: const InputDecoration(labelText: "Poblacion"),
-        ),
+        // TextField(
+        //   controller: cityController,
+        //   decoration: const InputDecoration(labelText: "Poblacion"),
+        // ),
         const SizedBox(height: 16),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

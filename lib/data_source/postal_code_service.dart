@@ -10,7 +10,7 @@ class PostalCodeService {
     var urlString = "";
 
     if (postalCode.isNotEmpty) urlString = AppUrls.urlCp + postalCode;
-    if (city.isNotEmpty) urlString = AppUrls.urlCity + city;
+    //if (city.isNotEmpty) urlString = AppUrls.urlCity + city;
 
     http.Response response = await http.get(Uri.parse(urlString));
     if (response.statusCode == 200) {

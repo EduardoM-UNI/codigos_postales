@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
       ),
       home: const Scaffold(
         body: HomePage(),
-        // body: WebView(urlString: "https://ca.wikipedia.org/wiki/Sabadell"),
       ),
       debugShowCheckedModeBanner: false,
     );
