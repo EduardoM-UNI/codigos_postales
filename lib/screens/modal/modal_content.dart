@@ -22,8 +22,8 @@ class _ModalContentState extends State<ModalContent> {
 
   void _saveAndClose() {
     widget.onSave({
-      'postalCode': postalCodeController.text,
-      'city': cityController.text,
+      "postalCode": postalCodeController.text,
+      "city": cityController.text,
     });
     Navigator.of(context).pop();
   }
@@ -35,18 +35,18 @@ class _ModalContentState extends State<ModalContent> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const Text(
-          'Busqueda por Codigo Postal o Poblacion',
+          "Busqueda por Codigo Postal o Poblacion",
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 16),
         TextField(
           controller: postalCodeController,
-          decoration: const InputDecoration(labelText: 'Codigo Postal'),
+          decoration: const InputDecoration(labelText: "Codigo Postal"),
         ),
         TextField(
           controller: cityController,
-          decoration: const InputDecoration(labelText: 'Poblacion'),
+          decoration: const InputDecoration(labelText: "Poblacion"),
         ),
         const SizedBox(height: 16),
         Row(
@@ -54,11 +54,11 @@ class _ModalContentState extends State<ModalContent> {
           children: [
             ElevatedButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Cancel'),
+              child: const Text("Cancel"),
             ),
             ElevatedButton(
               onPressed: _saveAndClose,
-              child: const Text('Buscar'),
+              child: const Text("Buscar"),
             ),
           ],
         ),
