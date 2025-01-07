@@ -6,9 +6,11 @@ class WebViewScreen extends StatefulWidget {
   WebViewScreen({
     super.key,
     required this.urlString,
+    required this.city,
   });
 
   String urlString;
+  String city;
 
   @override
   State<WebViewScreen> createState() => _WebViewState();
@@ -31,7 +33,7 @@ class _WebViewState extends State<WebViewScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("Códigos Postales"),
+        title: Text(widget.city),
         leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {

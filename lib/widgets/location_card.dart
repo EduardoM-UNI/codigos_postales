@@ -25,6 +25,7 @@ class LocationCard extends StatelessWidget {
                     builder: (context) => WebViewScreen(
                       urlString:
                           "https://www.google.com/maps?q=${location.latitude},${location.longitude}",
+                      city: location.placeName,
                     ),
                   ),
                 );
@@ -39,6 +40,7 @@ class LocationCard extends StatelessWidget {
                     builder: (context) => WebViewScreen(
                       urlString:
                           "https://en.wikipedia.org/wiki/${location.placeName}",
+                      city: location.placeName,
                     ),
                   ),
                 );
