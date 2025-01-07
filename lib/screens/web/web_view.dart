@@ -2,8 +2,8 @@ import 'package:codigos_postales/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class WebView extends StatefulWidget {
-  WebView({
+class WebViewScreen extends StatefulWidget {
+  WebViewScreen({
     super.key,
     required this.urlString,
   });
@@ -11,10 +11,10 @@ class WebView extends StatefulWidget {
   String urlString;
 
   @override
-  State<WebView> createState() => _WebViewState();
+  State<WebViewScreen> createState() => _WebViewState();
 }
 
-class _WebViewState extends State<WebView> {
+class _WebViewState extends State<WebViewScreen> {
   late WebViewController controller;
   @override
   void initState() {

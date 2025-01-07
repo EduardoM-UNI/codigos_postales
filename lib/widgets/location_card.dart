@@ -22,7 +22,7 @@ class LocationCard extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => WebView(
+                    builder: (context) => WebViewScreen(
                       urlString:
                           "https://www.google.com/maps?q=${location.latitude},${location.longitude}",
                     ),
@@ -36,7 +36,7 @@ class LocationCard extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => WebView(
+                    builder: (context) => WebViewScreen(
                       urlString:
                           "https://en.wikipedia.org/wiki/${location.placeName}",
                     ),
