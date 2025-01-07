@@ -32,9 +32,11 @@ class _WebViewState extends State<WebView> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text("Códigos Postales"),
-        leading: const Icon(
-          Icons.menu,
-        ),
+        leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context, true);
+            }),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
               gradient: LinearGradient(

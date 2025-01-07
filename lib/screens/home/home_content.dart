@@ -43,7 +43,11 @@ class _HomeContentState extends State<HomeContent> {
       ),
       backgroundColor: AppStyles.thistileColor,
       body: _places.isEmpty
-          ? const Center(child: Text("Pulsa el botón lupa para buscar"))
+          ? const Center(
+              child: Text(
+              "Pulsa el botón lupa para buscar",
+              style: AppStyles.distanceTitle,
+            ))
           : ListView.builder(
               itemCount: _places.length,
               itemBuilder: (context, index) =>
